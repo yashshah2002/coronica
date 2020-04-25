@@ -25,7 +25,9 @@ export default function Home({navigation}) {
     const subscriber = Firebase.auth().onAuthStateChanged(onAuthStateChanged);
     return subscriber; // unsubscribe on unmount
   }, []);
+
   if (initializing) return null;
+
   if (!user) {
     return (
       <View style={CStyles.container}>
@@ -46,66 +48,56 @@ export default function Home({navigation}) {
         />
         <CButton title='Log In' onPress= {() => {
           Firebase.auth()
-              .signInWithEmailAndPassword(email,password)
-              .then(() => navigation.navigate('Profile'))
-              .catch(error => {
-                if(error.code === 'auth/invalid-email') {
-                  Alert.alert(
-                    "Error",
-                    "Invalid email.",
-                    [
-                     { text: "OK", onPress: () => {setEmail(''); setPassword(''); } }
-                    ],
-                    { cancelable: false }
-                  );
-                }
-                if(error.code === 'auth/user-disabled') {
-                  Alert.alert(
-                    "Error",
-                    "User was disabled.",
-                    [
-                     { text: "OK", onPress: () => {setEmail(''); setPassword(''); } }
-                    ],
-                    { cancelable: false }
-                  );
-                }
-                if(error.code === 'auth/user-not-found') {
-                  Alert.alert(
-                    "Error",
-                    "User was not found.",
-                    [
-                      { text: "Cancel", onPress: () => {setEmail(''); setPassword(''); } },
-                      { text: "Signup", onPress: () => navigation.navigate('Signup') }
-                    ],
-                    { cancelable: false }
-                  );
-                }
-                if(error.code === 'auth/wrong-password') {
-                  Alert.alert(
-                    "Error",
-                    "Wrong password.",
-                    [
-                      { text: "OK", onPress: () => {setEmail(''); setPassword(''); } }
-                    ],
-                    { cancelable: false }
-                  );
-                }
-              })
-        }}/>
-        <CLink title={'Don\'t have an account? Sign Up'} onPress={() => navigation.navigate('Signup')}/>
+            .signInWithEmailAndPassword(email,password)
+            .then(() => navigation.navigate('RouteActivities', { screen: 'RouteInventory' }))
+            .catch(error => {
+              if(error.code === 'auth/invalid-email') {
+                Alert.alert(
+                  "Error",
+                  "Invalid email.",
+                  [
+                   { text: "OK", onPress: () => {setEmail(''); setPassword(''); } }
+                  ],
+                  { cancelable: false }
+                );
+              }
+              if(error.code === 'auth/user-disabled') {
+                Alert.alert(
+                  "Error",
+                  "User was disabled.",
+                  [
+                   { text: "OK", onPress: () => {setEmail(''); setPassword(''); } }
+                  ],
+                  { cancelable: false }
+                );
+              }
+              if(error.code === 'auth/user-not-found') {
+                Alert.alert(
+                  "Error",
+                  "User was not found.",
+                  [
+                    { text: "Cancel", onPress: () => {setEmail(''); setPassword(''); } },
+                    { text: "Signup", onPress: () => navigation.navigate('RouteSignup') }
+                  ],
+                  { cancelable: false }
+                );
+              }
+              if(error.code === 'auth/wrong-password') {
+                Alert.alert(
+                  "Error",
+                  "Wrong password.",
+                  [
+                    { text: "OK", onPress: () => {setEmail(''); setPassword(''); } }
+                  ],
+                  { cancelable: false }
+                );
+              }})
+          }
+        }/>
+        <CLink title={'Don\'t have an account? Sign Up!'} onPress={() => navigation.navigate('RouteSignup')}/>
       </View>
-    )
+    );
   }
-  return (
-    <View style={CStyles.container}>
-      <Text style={CStyles.titleStyle}>Welcome to Coronica, {user.email}</Text>
-      <CButton title='Profile' onPress={() => navigation.navigate('Profile')}/>
-      <CLink title='Log out' onPress={() => {
-        Firebase.auth()
-          .signOut()
-          .then(() => console.log('User signed out!'));
-      }}/>
-    </View>
-  );
-
+  navigation.navigate('RouteActivities', { screen: 'RouteInventory' });
+  return null;
 }
