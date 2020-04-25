@@ -1,21 +1,4 @@
-/*!
 
-=========================================================
-* Paper Kit React - v1.0.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/paper-kit-react
-
-* Copyright 2019 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/paper-kit-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
 
 // reactstrap components
@@ -25,7 +8,7 @@ import { Button, Card, Form, Input, Container, Row, Col } from "reactstrap";
 import IndexNavbar from "components/Navbars/IndexNavbar";
 import DemoFooter from "components/Footers/DemoFooter";
 
-function RegisterPage() {
+function PricingPage() {
   document.documentElement.classList.remove("nav-open");
   React.useEffect(() => {
     document.body.classList.add("register-page");
@@ -83,6 +66,16 @@ function RegisterPage() {
                     Sign In
                   </Button>
                 </Form>
+                <div className="forgot">
+                  <Button
+                    className="btn-link"
+                    color="danger"
+                    href="#pablo"
+                    onClick={e => e.preventDefault()}
+                  >
+                    Forgot password?
+                  </Button>
+                </div>
               </Card>
             </Col>
           </Row>
@@ -99,4 +92,4 @@ function RegisterPage() {
   );
 }
 
-export default RegisterPage;
+export default PricingPage;

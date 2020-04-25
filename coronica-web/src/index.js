@@ -1,24 +1,8 @@
-/*!
 
-=========================================================
-* Paper Kit React - v1.0.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/paper-kit-react
-
-* Copyright 2019 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/paper-kit-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
+import firebase from "firebase";
 
 // styles
 import "assets/css/bootstrap.min.css";
@@ -30,7 +14,21 @@ import NucleoIcons from "views/NucleoIcons.js";
 import LandingPage from "views/examples/LandingPage.js";
 import ProfilePage from "views/examples/ProfilePage.js";
 import RegisterPage from "views/examples/RegisterPage.js";
+import PricingPage from "views/examples/PricingPage";
 // others
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAzwtcbD_MevuxHTR8LZ4sn_dAzeIOJ0ZU",
+  authDomain: "coronica.firebaseapp.com",
+  databaseURL: "https://coronica.firebaseio.com",
+  projectId: "coronica",
+  storageBucket: "coronica.appspot.com",
+  messagingSenderId: "193366513135",
+  appId: "1:193366513135:web:e320c8312095cfcb3ad21a",
+  measurementId: "G-NY3RHG344C"
+};
+// Initialize Firebase
+let app = firebase.initializeApp(firebaseConfig);
 
 ReactDOM.render(
   <BrowserRouter>
@@ -50,7 +48,11 @@ ReactDOM.render(
       />
       <Route
         path="/register-page"
-        render={(props) => <RegisterPage {...props} />}
+        render={(props) => <RegisterPage {...props} firebase={app}/>}
+      />
+      <Route
+        path="/pricing-page"
+        render={(props) => <PricingPage {...props} />}
       />
       <Redirect to="/index" />
     </Switch>

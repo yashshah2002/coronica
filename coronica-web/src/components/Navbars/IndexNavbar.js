@@ -143,7 +143,7 @@ function IndexNavbar() {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="" target="_blank">
+              <NavLink to="/pricing-page" tag={Link}>
                 {" "}
                 Pricing
               </NavLink>
