@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native'
 const CStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#6D326D',
+    backgroundColor: '#7C90DB',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -13,27 +13,25 @@ const CStyles = StyleSheet.create({
     bottom: 0
   },
   textStyle: {
-    color: '#E5F4E3',
+    color: '#EDFFEC',
+    fontFamily: 'montserrat-regular',
   },
   titleStyle: {
     fontSize: 40,
     textAlign: 'center',
-    color: '#E5F4E3',
-  },
-  promptStyle: {
-    fontSize: 20,
-    textAlign: 'center',
-    color: '#E5F4E3',
-  },
-  promptBox: {
-    flexDirection: 'row'
+    color: '#EDFFEC',
+    fontFamily: 'montserrat-regular',
   },
   textInputStyle: {
-    width: 150,
+    width: 200,
     height: 30,
-    borderColor: '#E5F4E3',
-    borderWidth: 1,
-    marginLeft: 10
+    borderColor: '#EDFFEC',
+    backgroundColor: '#FFFFFF',
+    borderWidth: 2,
+    marginLeft: 10,
+    marginTop: 10,
+    paddingHorizontal:10,
+    fontFamily: 'montserrat-regular',
   }
 })
 

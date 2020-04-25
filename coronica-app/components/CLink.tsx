@@ -16,9 +16,10 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   buttonText: {
-    color: '#000000',
+    color: '#011638',
     fontSize: 15,
     textAlign: 'center',
     textDecorationLine: 'underline',
+    fontFamily: 'montserrat-regular',
   }
 })

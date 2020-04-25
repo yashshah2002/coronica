@@ -18,11 +18,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     marginTop: 20,
     width: 250,
-    backgroundColor: '#004E89',
+    backgroundColor: '#011638',
   },
   buttonText: {
-    color: '#E5F4E3',
+    color: '#EDFFEC',
     fontSize: 30,
     textAlign: 'center',
+    fontFamily: 'montserrat-regular',
   }
 })

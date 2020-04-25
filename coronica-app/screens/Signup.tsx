@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Alert } from 'react-native';
 import CButton from '../components/CButton.tsx';
 import {
   NavigationScreenComponent,
@@ -18,27 +18,61 @@ export default function Signup({navigation}) {
     <View style={CStyles.container}>
       <Text style={CStyles.titleStyle}>Welcome to Coronica</Text>
       <TextInput
-          value={ name }
-          onChangeText={name => setName(name)}
-          placeholder='Name'
+        style={CStyles.textInputStyle}
+        value={ name }
+        onChangeText={name => setName(name)}
+        placeholder='Name'
       />
       <TextInput
-          value={ email }
-          onChangeText={email => setEmail(email)}
-          placeholder='Email'
-          autoCapitalize='none'
+        style={CStyles.textInputStyle}
+        value={ email }
+        onChangeText={email => setEmail(email)}
+        placeholder='Email'
+        autoCapitalize='none'
       />
       <TextInput
-          value={ password }
-          onChangeText={password => setPassword(password)}
-          placeholder='Password'
-          secureTextEntry={true}
+        style={CStyles.textInputStyle}
+        value={ password }
+        onChangeText={password => setPassword(password)}
+        placeholder='Password'
+        secureTextEntry={true}
       />
       <CButton title='Sign Up!' onPress={() => {
         Firebase.auth()
             .createUserWithEmailAndPassword(email, password)
             .then(() => navigation.navigate('Profile'))
-            .catch(error => console.log(error))
+            .catch(error => {
+              if(error.code === 'auth/email-already-in-use') {
+                Alert.alert(
+                  "Error",
+                  "Email already in use.",
+                  [
+                   { text: "OK", onPress: () => {setEmail(''); setPassword(''); } }
+                  ],
+                  { cancelable: false }
+                );
+              }
+              if(error.code === 'auth/invalid-email') {
+                Alert.alert(
+                  "Error",
+                  "Invalid email.",
+                  [
+                   { text: "OK", onPress: () => {setEmail(''); setPassword(''); } }
+                  ],
+                  { cancelable: false }
+                );
+              }
+              if(error.code === 'auth/weak-password') {
+                Alert.alert(
+                  "Error",
+                  "Password is too weak.",
+                  [
+                   { text: "OK", onPress: () => {setEmail(''); setPassword(''); } }
+                  ],
+                  { cancelable: false }
+                );
+              }
+            })
           }
         }/>
     </View>
