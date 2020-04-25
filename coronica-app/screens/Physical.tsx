@@ -1,4 +1,4 @@
-import React, from 'react';
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import {
   NavigationScreenComponent,
@@ -7,7 +7,7 @@ import {
 } from "react-navigation";
 import { CStyles } from '../CStyles.tsx';
 
-export default function Signup({navigation}) {
+export default function Physical({navigation}) {
 
   return (
     <View style={CStyles.container}>
