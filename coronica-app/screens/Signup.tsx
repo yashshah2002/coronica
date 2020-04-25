@@ -40,7 +40,7 @@ export default function Signup({navigation}) {
       <CButton title='Sign Up!' onPress={() => {
         Firebase.auth()
             .createUserWithEmailAndPassword(email, password)
-            .then(() => navigation.navigate('Profile'))
+            .then(() => navigation.navigate('Activities', { screen: 'Inventory' })
             .catch(error => {
               if(error.code === 'auth/email-already-in-use') {
                 Alert.alert(

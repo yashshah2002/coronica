@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator, createSwitchNavigator, createDrawerNavigator } from 'react-navigation';
 import { NavigationContainer } from '@react-navigation/native';
 import Home from "./screens/Home";
 import Signup from "./screens/Signup";
@@ -15,16 +15,43 @@ const getFonts = () => Font.loadAsync({
 })
 
 const Stack = createStackNavigator();
+const Switch = createSwitchNavigator();
+const Drawer = createDrawerNavigator();
+
+function Login() {
+  return (
+     <NavigationContainer>
+      <Switch.Navigator initialRouteName='Home'>
+        <Switch.Screen name="Home" component={ Home } options={{ title: '' }}/>
+        <Switch.Screen name="Signup" component={ Signup } options={{ title: '' }}/>
+      </Switch.Navigator>
+    </NavigationContainer>
+  );
+}
+
+function Activities() {
+  return (
+     <NavigationContainer>
+      <Drawer.Navigator initialRouteName='Inventory'>
+        <Drawer.Screen name="Inventory" component={ Inventory } options={{ title: '' }}/>
+        <Drawer.Screen name="Physical" component={ Physical } options={{ title: '' }}/>
+        <Drawer.Screen name="SelfCare" component={ SelfCare } options={{ title: '' }}/>
+        <Drawer.Screen name="Social" component={ Social } options={{ title: '' }}/>
+        <Drawer.Screen name="Clicker" component={ Clicker } options={{ title: '' }}/>
+        <Drawer.Screen name="Health" component={ Health } options={{ title: '' }}/>
+      </Drawer.Navigator>
+    </NavigationContainer>
+  );
+}
 
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
   if(fontsLoaded){
     return (
        <NavigationContainer>
-        <Stack.Navigator initialRouteName='Home'>
-          <Stack.Screen name="Home" component={ Home } options={{ title: '' }}/>
-          <Stack.Screen name="Signup" component={ Signup } options={{ title: '' }}/>
-          <Stack.Screen name="Profile" component={ Profile } options={{ title: '' }}/>
+        <Stack.Navigator initialRouteName='Login'>
+          <Stack.Screen name="Login" component={ Login } options={{ title: '' }}/>
+          <Stack.Screen name="Activities" component={ Activities } options={{ title: '' }}/>
         </Stack.Navigator>
       </NavigationContainer>
     );

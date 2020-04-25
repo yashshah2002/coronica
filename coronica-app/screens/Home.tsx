@@ -47,7 +47,7 @@ export default function Home({navigation}) {
         <CButton title='Log In' onPress= {() => {
           Firebase.auth()
               .signInWithEmailAndPassword(email,password)
-              .then(() => navigation.navigate('Profile'))
+              .then(() => navigation.navigate('Activities', { screen: 'Inventory' })
               .catch(error => {
                 if(error.code === 'auth/invalid-email') {
                   Alert.alert(
@@ -96,16 +96,7 @@ export default function Home({navigation}) {
       </View>
     )
   }
-  return (
-    <View style={CStyles.container}>
-      <Text style={CStyles.titleStyle}>Welcome to Coronica, {user.email}</Text>
-      <CButton title='Profile' onPress={() => navigation.navigate('Profile')}/>
-      <CLink title='Log out' onPress={() => {
-        Firebase.auth()
-          .signOut()
-          .then(() => console.log('User signed out!'));
-      }}/>
-    </View>
-  );
+  navigation.navigate('Activities', { screen: 'Inventory' });
+  return ();
 
 }
