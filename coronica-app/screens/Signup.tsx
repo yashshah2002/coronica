@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, TextInput, Alert } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Alert, BackHandler } from 'react-native';
 import CButton from '../components/CButton.tsx';
 import {
   NavigationScreenComponent,
@@ -13,6 +13,16 @@ export default function Signup({navigation}) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  useEffect(() => {
+    const back = BackHandler.addEventListener("hardwareBackPress", () => {
+      navigation.navigate('RouteHome');
+      return true;
+    });
+    return () => {
+      back.remove();
+    };
+  }, []);
 
   return (
     <View style={CStyles.container}>
@@ -40,7 +50,7 @@ export default function Signup({navigation}) {
       <CButton title='Sign Up!' onPress={() => {
         Firebase.auth()
             .createUserWithEmailAndPassword(email, password)
-            .then(() => navigation.navigate('Profile'))
+            .then(() => navigation.navigate('RouteActivities', { screen: 'RouteInventory' }))
             .catch(error => {
               if(error.code === 'auth/email-already-in-use') {
                 Alert.alert(
