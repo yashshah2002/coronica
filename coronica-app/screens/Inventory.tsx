@@ -6,6 +6,8 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import CButton from '../components/CButton';
 import Firebase from '../config/Firebase';
 
+import axios from 'axios'
+
 export default function Inventory({navigation}) {
   const happy = <Icon name="smile-beam" size={100} color="#011638" />;
   const sad = <Icon name="frown" size={100} color="#011638" />;
