@@ -8,6 +8,8 @@ import firebase from "firebase";
 import "assets/css/bootstrap.min.css";
 import "assets/scss/paper-kit.scss";
 import "assets/demo/demo.css";
+import 'react-circular-progressbar/dist/styles.css';
+
 // pages
 import Index from "views/Index.js";
 import NucleoIcons from "views/NucleoIcons.js";
@@ -17,6 +19,7 @@ import RegisterPage from "views/examples/RegisterPage.js";
 import BenefitsPage from "views/examples/BenefitsPage";
 import FailedLogin from "views/examples/FailedLogin";
 import Login from "views/examples/Login";
+import SummaryPage from "views/examples/SummaryPage";
 // others
 
 const firebaseConfig = {
@@ -57,8 +60,8 @@ ReactDOM.render(
         render={(props) => <BenefitsPage {...props} />}
       />
       <Route
-        path="/failed-login"
-        render={(props) => <FailedLogin {...props} />}
+        path="/summary-page"
+        render={(props) => <SummaryPage {...props} />}
       />
       <Route
         path="/login"

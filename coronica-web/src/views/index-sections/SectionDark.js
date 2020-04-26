@@ -26,16 +26,13 @@ import { Container, Row, Col } from "reactstrap";
 function SectionDark() {
   return (
     <>
-      <div className="section section-dark">
+      <div className="section">
         <Container>
           <Row>
             <Col className="ml-auto mr-auto text-center" md="8">
-              <h2 className="title">Completed with examples</h2>
+              <h2 className="title">Daily Quote</h2>
               <p className="description">
-                The kit comes with three pre-built pages to help you get started
-                faster. You can change the text and images and you're good to
-                go. More importantly, looking at them will give you a picture of
-                what you can built with this powerful kit.
+                <i><strong>"</strong>Today, you are opening yourself up to be <strong>strong</strong> and <strong>physical</strong>. your desire to change stems from your ability to adapy quickly to new situations. As your <strong>freaky, wild-card self</strong> is yearning to come to the forefront, allow it to <strong>shock</strong> and <strong>amaze</strong> you. Your biggest challenge today will be allow things from the <strong>past</strong> to fade and allow the <strong>future</strong> to be born out of their ruins. <strong>Anxiety is an addiction</strong> like any other. You feel stress. Feel better. Stress. Feel better. Clench. <strong>Release</strong>. Let today be a day to <strong>rejuvenate</strong> and prepare yourself for the future.<strong>"</strong></i>
               </p>
             </Col>
           </Row>
