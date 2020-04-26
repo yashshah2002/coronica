@@ -12,7 +12,7 @@ import SelfCare from "./screens/SelfCare";
 import Social from "./screens/Social";
 import Clicker from "./screens/Clicker";
 import Health from "./screens/Health";
-import CDrawerButton from './components/CDrawerButton.tsx';
+import CDrawerButton from './components/CDrawerButton';
 import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
 import Firebase from './config/Firebase';
@@ -40,18 +40,21 @@ const customDrawerNavigator = (props) => (
 )
 
 const ActivitiesNavigator = createDrawerNavigator({
-  RouteInventory: {
-    screen: Inventory,
-    navigationOptions: {
-      drawerLabel: "Daily Inventory"
-    }
-  },
+  
   RoutePhysical: {
     screen: Physical,
     navigationOptions: {
       drawerLabel: "Physical Activities"
     }
-  },
+    },
+
+    RouteInventory: {
+        screen: Inventory,
+        navigationOptions: {
+            drawerLabel: "Daily Inventory"
+        }
+    },
+
   RouteSelfCare: {
     screen: SelfCare,
     navigationOptions: {
