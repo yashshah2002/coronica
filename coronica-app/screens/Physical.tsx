@@ -1,10 +1,7 @@
 import React, { createRef, useState } from 'react';
 import { Text, View, FlatList, TouchableOpacity } from 'react-native';
-import { CStyles } from '../CStyles';
-
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
-import CButton from '../components/CButton';
-import { HeaderTitle } from 'react-navigation-stack';
+import { CStyles } from '../CStyles';
 
 const DATA = [
   {
@@ -24,12 +21,12 @@ const DATA = [
   },
 ];
 
-function Item({ title, pointsVal, onPress }) {
+function Item({ title, pointVal, onPress }) {
   return (
-    <TouchableOpacity onPress = {onPress}>
-      <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between', height: 30}}>
+    <TouchableOpacity onPress={onPress}>
+      <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', height: 30 }}>
         <Text style={CStyles.textStyle}>{title}</Text>
-        <Text style={CStyles.textStyle}>{pointsVal}</Text>
+        <Text style={CStyles.textStyle}>{pointVal}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -37,25 +34,28 @@ function Item({ title, pointsVal, onPress }) {
 
 export default function Physical({ navigation }) {
   const [points, setPoints] = useState(0);
-  let circularProgressRef = React.createRef<AnimatedCircularProgress>();
-  const prog = circularProgressRef.current
   return (
     <View style={CStyles.container}>
-      <View style={{height: 100}}/>
-      <Text style={CStyles.titleStyle}>{points}</Text>
+      <View style={{ height: 100 }} />
       <AnimatedCircularProgress
         size={200}
-        width={15}
-        fill={100}
-        tintColor="#EDFFEC"
-        onAnimationComplete={() => console.log('onAnimationComplete')}
-        backgroundColor="#FFFFFF"
-        ref={circularProgressRef} />
-      <FlatList 
-        style={{paddingVertical: 20, width: 300}}
+        width={25}
+        fill={points}
+        tintColor="#011638"
+        backgroundColor="#EDFFEC">
+        {
+          (fill) => (
+            <Text style={CStyles.titleStyle}>
+              {points}
+            </Text>
+          )
+        }
+      </AnimatedCircularProgress>
+      <FlatList
+        style={{ paddingVertical: 20, width: 300 }}
         data={DATA}
-        renderItem={({ item }) => <Item title={item.title} pointsVal={item.pointVal} onPress={() => {
-          setPoints(points+item.pointVal);
+        renderItem={({ item }) => <Item title={item.title} pointVal={item.pointVal} onPress={() => {
+          setPoints(points + item.pointVal);
         }} />}
         keyExtractor={item => item.id} />
     </View>
