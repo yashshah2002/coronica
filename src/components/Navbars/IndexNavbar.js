@@ -126,21 +126,9 @@ function IndexNavbar(props) {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="" target="_blank">
+              <NavLink to="/summary-page" tag={Link}>
                 {" "}
                 Summary
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink to="/benefits-page" tag={Link}>
-                {" "}
-                Benefits
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="" target="_blank">
-                {" "}
-                Heatmap
               </NavLink>
             </NavItem>
             {!props.loggedIn ? 

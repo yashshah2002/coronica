@@ -14,7 +14,7 @@ function DemoFooter() {
             <ul>
               <li>
                 <a
-                  href=""
+                  href="https://coronica.herokuapp.com/index"
                   target="_blank"
                 >
                   Coronica
@@ -22,7 +22,7 @@ function DemoFooter() {
               </li>
               <li>
                 <a
-                  href=""
+                  href="https://github.com/caitlin-tibbetts/coronica"
                   target="_blank"
                 >
                   Team
@@ -30,7 +30,7 @@ function DemoFooter() {
               </li>
               <li>
                 <a
-                  href=""
+                  href="https://devpost.com/software/coronica-s413ig"
                   target="_blank"
                 >
                   Devpost

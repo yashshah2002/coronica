@@ -5,6 +5,9 @@ import React from "react";
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import DemoFooter from "components/Footers/DemoFooter.js";
 import LandingPageHeader from "components/Headers/LandingPageHeader";
+import SectionCarousel from "views/index-sections/SectionCarousel";
+import SectionDark from "views/index-sections/SectionDark";
+import SectionProgress from "views/index-sections/SectionProgress";
 
 
 function Login(props) {
@@ -20,6 +23,8 @@ function Login(props) {
       <IndexNavbar loggedIn={true}/>
       <LandingPageHeader email={props.email}/>
       <div className="main">
+        <SectionDark />
+        <SectionProgress />
         <DemoFooter />
       </div>
     </>
