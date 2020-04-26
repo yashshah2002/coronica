@@ -56,9 +56,10 @@ const ActivitiesNavigator = createDrawerNavigator({
   RouteSelfCare: {
     screen: SelfCare,
     navigationOptions: {
-      drawerLabel: "Self Care"
+       drawerLabel: "Self Care"
     }
-  },
+    },
+
   RouteSocial: {
     screen: Social,
     navigationOptions: {

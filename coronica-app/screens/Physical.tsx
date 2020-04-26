@@ -33,7 +33,9 @@ function Item({ title, pointVal, onPress }) {
 }
 
 export default function Physical({ navigation }) {
-  const [points, setPoints] = useState(0);
+    const [points, setPoints] = useState(0);
+    
+
   return (
     <View style={CStyles.container}>
       <AnimatedCircularProgress

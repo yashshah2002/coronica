@@ -73,7 +73,7 @@ export default function Inventory({navigation}) {
         <Text style={CStyles.textStyle}>Looks like you're in need of some self-care!</Text>
         <View style={{ height: 20 }} />
         <CButton title={'Let\'s go!'} onPress={() => {
-          navigation.navigate('RouteSelfcare');
+          navigation.navigate('RouteSelfCare');
         }}/>
       </View>
     );
