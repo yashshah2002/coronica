@@ -6,6 +6,10 @@ import {
   NavigationStackScreenOptions
 } from "react-navigation";
 import { CStyles } from '../CStyles.tsx';
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { CStyles } from '../CStyles';
+
 
 function Item({ title, pointVal, onPress }) {
     return (

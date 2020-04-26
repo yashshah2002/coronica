@@ -1,16 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TextInput, Button, Alert } from 'react-native';
-import CButton from '../components/CButton.tsx';
-import CLink from '../components/CLink.tsx';
-import {
-  NavigationScreenComponent,
-  NavigationScreenProps,
-  NavigationStackScreenOptions
-} from "react-navigation";
-import { CStyles } from '../CStyles.tsx';
+import CButton from '../components/CButton';
+import CLink from '../components/CLink';
+import { CStyles } from '../CStyles';
 import Firebase from '../config/Firebase';
 
-export default function Home({navigation}) {
+export default function Home({ navigation }) {
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState();
   const [email, setEmail] = useState('');
@@ -46,55 +41,56 @@ export default function Home({navigation}) {
           placeholder='Password'
           secureTextEntry={true}
         />
-        <CButton title='Log In' onPress= {() => {
+        <CButton title='Log In' onPress={() => {
           Firebase.auth()
-            .signInWithEmailAndPassword(email,password)
+            .signInWithEmailAndPassword(email, password)
             .then(() => navigation.navigate('RouteActivities', { screen: 'RouteInventory' }))
             .catch(error => {
-              if(error.code === 'auth/invalid-email') {
+              if (error.code === 'auth/invalid-email') {
                 Alert.alert(
                   "Error",
                   "Invalid email.",
                   [
-                   { text: "OK", onPress: () => {setEmail(''); setPassword(''); } }
+                    { text: "OK", onPress: () => { setEmail(''); setPassword(''); } }
                   ],
                   { cancelable: false }
                 );
               }
-              if(error.code === 'auth/user-disabled') {
+              if (error.code === 'auth/user-disabled') {
                 Alert.alert(
                   "Error",
                   "User was disabled.",
                   [
-                   { text: "OK", onPress: () => {setEmail(''); setPassword(''); } }
+                    { text: "OK", onPress: () => { setEmail(''); setPassword(''); } }
                   ],
                   { cancelable: false }
                 );
               }
-              if(error.code === 'auth/user-not-found') {
+              if (error.code === 'auth/user-not-found') {
                 Alert.alert(
                   "Error",
                   "User was not found.",
                   [
-                    { text: "Cancel", onPress: () => {setEmail(''); setPassword(''); } },
+                    { text: "Cancel", onPress: () => { setEmail(''); setPassword(''); } },
                     { text: "Signup", onPress: () => navigation.navigate('RouteSignup') }
                   ],
                   { cancelable: false }
                 );
               }
-              if(error.code === 'auth/wrong-password') {
+              if (error.code === 'auth/wrong-password') {
                 Alert.alert(
                   "Error",
                   "Wrong password.",
                   [
-                    { text: "OK", onPress: () => {setEmail(''); setPassword(''); } }
+                    { text: "OK", onPress: () => { setEmail(''); setPassword(''); } }
                   ],
                   { cancelable: false }
                 );
-              }})
-          }
-        }/>
-        <CLink title={'Don\'t have an account? Sign Up!'} onPress={() => navigation.navigate('RouteSignup')}/>
+              }
+            })
+        }
+        } />
+        <CLink title={'Don\'t have an account? Sign Up!'} onPress={() => navigation.navigate('RouteSignup')} />
       </View>
     );
   }

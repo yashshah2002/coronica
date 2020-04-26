@@ -15,6 +15,7 @@ const CStyles = StyleSheet.create({
   textStyle: {
     color: '#EDFFEC',
     fontFamily: 'montserrat-regular',
+    textAlign: 'center'
   },
   titleStyle: {
     fontSize: 40,

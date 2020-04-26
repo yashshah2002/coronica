@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { Button, SafeAreaView, ScrollView, Dimensions } from 'react-native';
 import { createSwitchNavigator, createAppContainer} from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack'
 import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
-import { NavigationContainer } from '@react-navigation/native';
 import Home from "./screens/Home";
 import Signup from "./screens/Signup";
 import Inventory from "./screens/Inventory";
