@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TextInput, Alert, BackHandler } from 'react-native';
-import CButton from '../components/CButton.tsx';
-import {
-  NavigationScreenComponent,
-  NavigationScreenProps,
-  NavigationStackScreenOptions
-} from "react-navigation";
-import { CStyles } from '../CStyles.tsx';
+import CButton from '../components/CButton';
+import { CStyles } from '../CStyles';
 import Firebase from '../config/Firebase';
 
 export default function Signup({navigation}) {
