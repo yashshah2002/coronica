@@ -1,15 +1,13 @@
 
 import React from "react";
 
-// reactstrap components
-
 // core components
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
-import IndexHeader from "components/Headers/IndexHeader.js";
 import DemoFooter from "components/Footers/DemoFooter.js";
+import LandingPageHeader from "components/Headers/LandingPageHeader";
 
 
-function Index() {
+function Login(props) {
   document.documentElement.classList.remove("nav-open");
   React.useEffect(() => {
     document.body.classList.add("index");
@@ -19,8 +17,8 @@ function Index() {
   });
   return (
     <>
-      <IndexNavbar />
-      <IndexHeader />
+      <IndexNavbar loggedIn={true}/>
+      <LandingPageHeader email={props.email}/>
       <div className="main">
         <DemoFooter />
       </div>
@@ -28,4 +26,4 @@ function Index() {
   );
 }
 
-export default Index;
+export default Login;

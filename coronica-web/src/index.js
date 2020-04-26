@@ -14,7 +14,9 @@ import NucleoIcons from "views/NucleoIcons.js";
 import LandingPage from "views/examples/LandingPage.js";
 import ProfilePage from "views/examples/ProfilePage.js";
 import RegisterPage from "views/examples/RegisterPage.js";
-import PricingPage from "views/examples/PricingPage";
+import BenefitsPage from "views/examples/BenefitsPage";
+import FailedLogin from "views/examples/FailedLogin";
+import Login from "views/examples/Login";
 // others
 
 const firebaseConfig = {
@@ -52,7 +54,15 @@ ReactDOM.render(
       />
       <Route
         path="/pricing-page"
-        render={(props) => <PricingPage {...props} />}
+        render={(props) => <BenefitsPage {...props} />}
+      />
+      <Route
+        path="/failed-login"
+        render={(props) => <FailedLogin {...props} />}
+      />
+      <Route
+        path="/login"
+        render={(props) => <Login {...props} />}
       />
       <Redirect to="/index" />
     </Switch>

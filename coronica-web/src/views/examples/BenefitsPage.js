@@ -8,7 +8,7 @@ import { Button, Card, Form, Input, Container, Row, Col } from "reactstrap";
 import IndexNavbar from "components/Navbars/IndexNavbar";
 import DemoFooter from "components/Footers/DemoFooter";
 
-function PricingPage() {
+function BenefitsPage() {
   document.documentElement.classList.remove("nav-open");
   React.useEffect(() => {
     document.body.classList.add("register-page");
@@ -92,4 +92,4 @@ function PricingPage() {
   );
 }
 
-export default PricingPage;
+export default BenefitsPage;

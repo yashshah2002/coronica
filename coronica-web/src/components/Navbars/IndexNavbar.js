@@ -1,14 +1,3 @@
-/*!
-=========================================================
-* Paper Kit React - v1.0.0
-=========================================================
-* Product Page: https://www.creative-tim.com/product/paper-kit-react
-* Copyright 2019 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/paper-kit-react/blob/master/LICENSE.md)
-* Coded by Creative Tim
-=========================================================
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
 
 import React from "react";
 import { Link } from "react-router-dom";
@@ -26,7 +15,7 @@ import {
   Container,
 } from "reactstrap";
 
-function IndexNavbar() {
+function IndexNavbar(props) {
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
   const [navbarCollapse, setNavbarCollapse] = React.useState(false);
 
@@ -143,9 +132,9 @@ function IndexNavbar() {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to="/pricing-page" tag={Link}>
+              <NavLink to="/benefits-page" tag={Link}>
                 {" "}
-                Pricing
+                Benefits
               </NavLink>
             </NavItem>
             <NavItem>
@@ -154,6 +143,7 @@ function IndexNavbar() {
                 Heatmap
               </NavLink>
             </NavItem>
+            {!props.loggedIn ? 
             <NavItem>
               <Button
                 className="btn-round"
@@ -163,7 +153,7 @@ function IndexNavbar() {
               >
                 Sign In
               </Button>
-            </NavItem>
+            </NavItem> : <div></div>}
           </Nav>
         </Collapse>
       </Container>
