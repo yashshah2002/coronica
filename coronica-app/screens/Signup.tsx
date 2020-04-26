@@ -4,8 +4,6 @@ import CButton from '../components/CButton';
 import { CStyles } from '../CStyles';
 import Firebase from '../config/Firebase';
 
-import axios from 'axios';
-
 export default function Signup({ navigation }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -50,12 +48,6 @@ export default function Signup({ navigation }) {
           .then(() => {
             Firebase.auth().currentUser?.updateProfile({displayName: name})
             .then(() => {
-              axios.post(`https://firestore.googleapis.com/v1/projects/coronica/databases/(default)/documents/users/${email}`,{
-                displayName: name,
-                points: 0
-              }).then(res => {
-                console.log(res)
-              }).catch(error => console.log(error))
               navigation.navigate('RouteActivities', { screen: 'RouteInventory' })
             })
             .catch(error => console.log('Error changing display name'))

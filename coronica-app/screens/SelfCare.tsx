@@ -1,11 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import {
-  NavigationScreenComponent,
-  NavigationScreenProps,
-  NavigationStackScreenOptions
-} from "react-navigation";
-import { CStyles } from '../CStyles.tsx';
+import { CStyles } from '../CStyles';
 
 export default function SelfCare({navigation}) {
 

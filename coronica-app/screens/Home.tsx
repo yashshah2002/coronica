@@ -5,8 +5,6 @@ import CLink from '../components/CLink';
 import { CStyles } from '../CStyles';
 import Firebase from '../config/Firebase';
 
-import axios from 'axios'
-
 export default function Home({ navigation }) {
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState();
