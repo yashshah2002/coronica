@@ -23,8 +23,8 @@ const DATA = [
 
 function Item({ title, pointVal, onPress }) {
   return (
-    <TouchableOpacity onPress={onPress}>
-      <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', height: 30 }}>
+    <TouchableOpacity onPress={onPress} style={{backgroundColor: '#96a6e2', marginTop: 10, paddingHorizontal: 10 }}>
+      <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', height: 40, alignItems:'center' }}>
         <Text style={CStyles.textStyle}>{title}</Text>
         <Text style={CStyles.textStyle}>{pointVal}</Text>
       </View>
@@ -42,7 +42,7 @@ export default function Physical({ navigation }) {
         width={25}
         fill={points}
         tintColor="#011638"
-        backgroundColor="#EDFFEC">
+        backgroundColor="#96a6e2">
         {
           (fill) => (
             <Text style={CStyles.titleStyle}>
